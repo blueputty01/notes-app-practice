@@ -1,10 +1,10 @@
-# To-Do App
+# Notes App
 
 # Description
 
-Simple to-do app built on React
+Simple notes app built on React
 
-Find the build [here](https://blueputty01.github.io/to-do/)
+Find the build [here](https://blueputty01.github.io/notes-app-practice/)
 
 ## Features
 
