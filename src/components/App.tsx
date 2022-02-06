@@ -7,7 +7,7 @@ export default function App() {
   return (
     <React.Fragment>
       <Sidebar></Sidebar>
-      <Note></Note>
+      <Note title="Header 1"></Note>
     </React.Fragment>
   );
 }

@@ -1,16 +1,18 @@
 import React from 'react';
 import './Note.scss';
 
-export default function Note() {
+interface ItemProps {
+  title: string;
+  children?: React.ReactNode;
+}
+
+const Note = (props: ItemProps) => {
   return (
     <main>
-      <h1>Note Title 1</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate
-        eaque voluptatum debitis, quis, repudiandae sit molestias excepturi,
-        fugit numquam dolores inventore? Libero vitae exercitationem accusamus
-        odit iste laborum sint ea?
-      </p>
+      <h1>{props.title}</h1>
+      {props.children}
     </main>
   );
-}
+};
+
+export default Note;
