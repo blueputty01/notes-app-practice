@@ -1,5 +1,5 @@
 import React from 'react';
-import Overview from './Overview';
+import Overview from './pages/overview';
 import './App.scss';
 
 export default function App() {

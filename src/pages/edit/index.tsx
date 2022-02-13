@@ -1,6 +1,6 @@
 import React from 'react';
 import './Sidebar.scss';
-import Item from './Item';
+import Item from './SidebarItem';
 
 export default function Sidebar() {
   return (

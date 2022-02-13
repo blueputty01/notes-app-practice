@@ -1,6 +1,6 @@
 import React from 'react';
 import './Note.scss';
-import Sidebar from './Sidebar';
+import Sidebar from '../pages/edit';
 
 interface ItemProps {
   title: string;
@@ -19,4 +19,21 @@ const Note = (props: ItemProps) => {
   );
 };
 
-export default Note;
+interface ItemProps {
+  id: string;
+  title: string;
+  summary: string;
+  selected: boolean;
+}
+const Item = (props: ItemProps) => {
+  return (
+    <div
+      className={['sidebar-item', props.selected ? 'selected' : ''].join(' ')}
+    >
+      <h1>{props.title}</h1>
+      <p>{props.summary}</p>
+    </div>
+  );
+};
+
+export default { Note, Item };
