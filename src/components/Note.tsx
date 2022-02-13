@@ -1,6 +1,6 @@
 import React from 'react';
 import './Note.scss';
-import Sidebar from '../pages/edit';
+import Sidebar from './Sidebar';
 
 interface ItemProps {
   title: string;
