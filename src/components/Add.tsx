@@ -4,7 +4,7 @@ import './Add.scss';
 
 export default function Add() {
   return (
-    <button>
+    <button id="add">
       <img src={addIcon} alt="add-icon" /> New Note
     </button>
   );
