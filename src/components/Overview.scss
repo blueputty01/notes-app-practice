@@ -1,3 +1,5 @@
+@use '../styles/utils.scss';
+
 body {
   display: block;
   align-content: center;
@@ -9,4 +11,8 @@ main {
   margin: 4.3rem auto 2rem;
   padding: 0 1rem 1rem 1rem;
   flex: 1;
+}
+
+header.overview {
+  @include utils.vertical-center;
 }

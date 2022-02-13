@@ -1,6 +1,7 @@
+@use '../styles/utils.scss';
+
 #add {
-  display: flex;
-  align-content: center;
+  @include utils.vertical-center;
   gap: 0.3rem;
   color: #878683;
 }
