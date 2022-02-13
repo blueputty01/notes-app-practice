@@ -1,13 +1,7 @@
 import React from 'react';
-import Sidebar from './Sidebar';
-import Note from './Note';
+import Overview from './Overview';
 import './App.scss';
 
 export default function App() {
-  return (
-    <React.Fragment>
-      <Sidebar></Sidebar>
-      <Note title="Header 1"></Note>
-    </React.Fragment>
-  );
+  return <Overview></Overview>;
 }
