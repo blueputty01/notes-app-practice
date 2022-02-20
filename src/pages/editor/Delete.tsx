@@ -2,7 +2,7 @@ import React from 'react';
 import delIcon from '../../shared/icons/delete.png';
 import { useLocalStorage } from '../../shared/services/useLocalStorage';
 import { useParams } from 'react-router-dom';
-import './Delete.scss';
+import './Delete.module.scss';
 
 export default function Add() {
   let [items, setItems] = useLocalStorage('items', {});

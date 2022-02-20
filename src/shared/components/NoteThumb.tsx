@@ -1,7 +1,6 @@
 import React from 'react';
 import { NoteProps } from './Note';
 import { useNavigate } from 'react-router-dom';
-// import './NoteThumb.scss';
 
 export interface ThumbProps extends NoteProps {
   id: string;
@@ -11,7 +10,7 @@ const NoteThumb = (props: ThumbProps) => {
   const navigate = useNavigate();
 
   const redirect = () => {
-    navigate(`/${props.id}`);
+    navigate(`/notes/${props.id}`);
   };
 
   return (
