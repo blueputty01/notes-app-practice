@@ -1,12 +1,14 @@
 import React from 'react';
-import Add from './Add';
+import Add from '../../shared/components/Add';
+import NotesList from './NotesList';
 import './Overview.scss';
-import '../styles/utils.scss';
+import '../../shared/styles/utils.scss';
 
-export default function Sidebar() {
+export default function Overview() {
   return (
     <main>
       <Header></Header>
+      <NotesList></NotesList>
     </main>
   );
 }

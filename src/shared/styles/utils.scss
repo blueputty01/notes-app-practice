@@ -8,6 +8,12 @@
   margin-left: auto;
 }
 
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @mixin vertical-center {
   display: flex;
   align-items: center;

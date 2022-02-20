@@ -1,17 +1,17 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from './components/App';
-import Notes from './routes/notes';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Overview from './pages/overview/Overview';
+import Editor from './pages/editor/Editor';
 
-import './styles/global.scss';
+import './shared/styles/global.scss';
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="notes" element={<Notes />} />
+      <Route path="/" element={<Overview />} />
+      <Route path="/:id" element={<Editor />} />
     </Routes>
   </BrowserRouter>,
   rootElement
