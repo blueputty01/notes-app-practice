@@ -1,6 +1,6 @@
 @use '../../shared/styles/utils.scss';
 
-#add {
+.add {
   @include utils.vertical-center;
   gap: 0.3rem;
   color: #878683;

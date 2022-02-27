@@ -4,9 +4,12 @@ import { useNavigate } from 'react-router-dom';
 
 export interface ThumbProps extends NoteProps {
   id: string;
+  styleSheet: any;
 }
 
 const NoteThumb = (props: ThumbProps) => {
+  const style = props.styleSheet;
+
   const navigate = useNavigate();
 
   const redirect = () => {
@@ -14,7 +17,7 @@ const NoteThumb = (props: ThumbProps) => {
   };
 
   return (
-    <div className="note-thumb" onClick={redirect}>
+    <div className={style.noteThumb} onClick={redirect}>
       <h1>{props.summary}</h1>
       <p>{props.details}</p>
     </div>

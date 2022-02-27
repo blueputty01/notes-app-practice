@@ -1,22 +1,28 @@
 import React from 'react';
 import addIcon from '../icons/add.png';
-import { useLocalStorage } from '../services/useLocalStorage';
 import { v4 as uuidv4 } from 'uuid';
-import './Add.scss';
+import styles from './Add.scss';
+import { useNavigate } from 'react-router-dom';
 
-export default function Add() {
-  let [items, setItems] = useLocalStorage('items', {});
-  console.log(items);
+interface AddProps {
+  items: any;
+  setItems: any;
+}
+
+export default function Add(props: AddProps) {
+  const { items, setItems } = props;
+
+  const navigate = useNavigate();
 
   return (
-    <button id="add" onClick={addHandler}>
+    <button className={styles.add} onClick={addHandler}>
       <img src={addIcon} alt="add-icon" /> New Note
     </button>
   );
   function addHandler() {
-    setItems({
-      ...items,
-      [uuidv4()]: { summary: 'note', details: 'lorem ipsum' },
-    });
+    const id = uuidv4();
+    console.log(id);
+
+    setItems([...items, { id, summary: 'note', details: 'lorem ipsum' }]);
   }
 }

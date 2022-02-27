@@ -2,6 +2,7 @@ import React from 'react';
 import './Note.scss';
 
 export interface NoteProps {
+  id: string;
   summary: string;
   details: string;
 }

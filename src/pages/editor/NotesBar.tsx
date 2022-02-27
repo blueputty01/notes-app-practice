@@ -1,30 +1,38 @@
 import React from 'react';
 import { NoteProps } from '../../shared/components/Note';
 import NoteThumb from '../../shared/components/NoteThumb';
-import { useLocalStorage } from '../../shared/services/useLocalStorage';
 import Delete from './Delete';
-import './NotesBar.module.scss';
-import './NoteThumb.module.scss';
+import style from './NotesBar.scss';
+import noteStyle from './NoteThumb.scss';
 
-export default function NotesList() {
-  let [items, setItems] = useLocalStorage('items', []);
+interface ListProps {
+  items: any;
+  setItems: any;
+  setDeletion: any;
+  deletedIndex: number;
+}
 
-  const itemEles = Object.entries(items).map(([key, dat]) => {
-    const castedDat = dat as NoteProps;
-
+export default function NotesList(props: ListProps) {
+  const itemEles = props.items.map((dat: NoteProps) => {
     return (
       <NoteThumb
-        key={key}
-        id={key}
-        summary={castedDat.summary}
-        details={castedDat.details}
+        key={dat.id}
+        id={dat.id}
+        summary={dat.summary}
+        details={dat.details}
+        styleSheet={noteStyle}
       ></NoteThumb>
     );
   });
 
   return (
-    <nav className="notes-bar">
-      <Delete></Delete>
+    <nav className={style.notesBar}>
+      <Delete
+        items={props.items}
+        setItems={props.setItems}
+        deletedIndex={props.deletedIndex}
+        setDeletion={props.setDeletion}
+      ></Delete>
       {itemEles}
     </nav>
   );

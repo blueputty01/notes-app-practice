@@ -1,25 +1,30 @@
 import React from 'react';
 import { NoteProps } from '../../shared/components/Note';
 import NoteThumb from '../../shared/components/NoteThumb';
-import { useLocalStorage } from '../../shared/services/useLocalStorage';
-import './NotesList.scss';
-import './NoteThumb.scss';
+import style from './NotesList.scss';
+import thumbStyles from './NoteThumb.scss';
 
-export default function NotesList() {
-  let [items, setItems] = useLocalStorage('items', []);
+interface Props {
+  items: any;
+  setItems: any;
+}
 
-  const itemEles = Object.entries(items).map(([key, dat]) => {
-    const castedDat = dat as NoteProps;
+export default function NotesList(props: Props) {
+  console.log(props.items);
 
+  const itemEles = props.items.map((dat: NoteProps) => {
     return (
       <NoteThumb
-        key={key}
-        id={key}
-        summary={castedDat.summary}
-        details={castedDat.details}
+        key={dat.id}
+        id={dat.id}
+        summary={dat.summary}
+        details={dat.details}
+        styleSheet={thumbStyles}
       ></NoteThumb>
     );
   });
 
-  return <div className="notes-list">{itemEles}</div>;
+  console.log(itemEles);
+
+  return <div className={style.noteList}>{itemEles}</div>;
 }
