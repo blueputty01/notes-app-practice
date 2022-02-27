@@ -19,7 +19,7 @@ export default function Editor() {
 
   const newId = id ? id : 'none';
 
-  console.log(newId);
+  // console.log(newId);
 
   const find = items.find((item: NoteProps) => {
     return item.id === newId;
@@ -39,7 +39,6 @@ export default function Editor() {
     if (deletedIndex != -1) {
       navigate('/');
     }
-    console.log(deletedIndex);
   }, [deletedIndex]);
 
   return (

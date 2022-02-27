@@ -11,11 +11,6 @@ export default function Overview() {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log(items, '- Has changed');
-    navigate(`/notes/${items[items.length - 1].id}`);
-  }, [items]);
-
   return (
     <main>
       <Header></Header>

@@ -19,19 +19,19 @@ export default function Delete(props: DelProps) {
   function delHandler() {
     console.log('deleting');
     console.log(id);
-    console.log(items);
+    console.log('old', items);
 
-    const newObject = {};
     if (typeof id !== 'undefined') {
-      const newObject = { ...items };
-      newObject[id] = undefined;
+      items.pop(id);
     }
 
-    console.log(newObject);
+    const temp = [...items];
 
-    navigate('/');
-    setItems(newObject);
-    // setDeletion(id);
+    console.log('new', temp);
+
+    setItems(temp);
+
+    navigate(`/`);
   }
 
   return (
