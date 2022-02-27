@@ -10,11 +10,21 @@ import { useNavigate } from 'react-router-dom';
 import { off } from 'process';
 
 export default function Editor() {
+  const [items, setItems] = useLocalStorage('items', []);
+  const [deletedIndex, setDeletion] = useState(-1);
+
+  useEffect(() => {
+    console.log('index', deletedIndex);
+
+    if (deletedIndex != -1) {
+      navigate('/');
+    }
+  }, [deletedIndex]);
+
   const navigate = useNavigate();
 
   let { id } = useParams();
 
-  let [items, setItems] = useLocalStorage('items', []);
   console.log(items);
 
   const newId = id ? id : 'none';
@@ -30,16 +40,6 @@ export default function Editor() {
   }
 
   const dat = find as NoteProps;
-
-  const [deletedIndex, setDeletion] = useState(-1);
-
-  useEffect(() => {
-    console.log(deletedIndex);
-
-    if (deletedIndex != -1) {
-      navigate('/');
-    }
-  }, [deletedIndex]);
 
   return (
     <div className={style.container}>
