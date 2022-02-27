@@ -31,24 +31,12 @@ export default function Editor() {
 
   const dat = find as NoteProps;
 
-  const [deletedIndex, setDeletion] = useState(-1);
-
-  useEffect(() => {
-    console.log(deletedIndex);
-
-    if (deletedIndex != -1) {
-      navigate('/');
-    }
-  }, [deletedIndex]);
-
   return (
     <div className={style.container}>
       <div className={style.sidebar}>
         <NotesList
           items={items}
           setItems={setItems}
-          setDeletion={setDeletion}
-          deletedIndex={deletedIndex}
         ></NotesList>
       </div>
       <div className={style.note}>

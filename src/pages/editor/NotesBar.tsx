@@ -8,8 +8,6 @@ import noteStyle from './NoteThumb.scss';
 interface ListProps {
   items: any;
   setItems: any;
-  setDeletion: any;
-  deletedIndex: number;
 }
 
 export default function NotesList(props: ListProps) {
@@ -30,8 +28,6 @@ export default function NotesList(props: ListProps) {
       <Delete
         items={props.items}
         setItems={props.setItems}
-        deletedIndex={props.deletedIndex}
-        setDeletion={props.setDeletion}
       ></Delete>
       {itemEles}
     </nav>
