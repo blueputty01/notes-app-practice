@@ -8,6 +8,7 @@ import noteStyle from './NoteThumb.scss';
 interface ListProps {
   items: any;
   setItems: any;
+  selected: string;
 }
 
 export default function NotesList(props: ListProps) {
@@ -19,16 +20,14 @@ export default function NotesList(props: ListProps) {
         summary={dat.summary}
         details={dat.details}
         styleSheet={noteStyle}
+        classes={[dat.id === props.selected ? noteStyle.selected : '']}
       ></NoteThumb>
     );
   });
 
   return (
     <nav className={style.notesBar}>
-      <Delete
-        items={props.items}
-        setItems={props.setItems}
-      ></Delete>
+      <Delete items={props.items} setItems={props.setItems}></Delete>
       {itemEles}
     </nav>
   );

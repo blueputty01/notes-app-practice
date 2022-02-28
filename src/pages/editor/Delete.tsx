@@ -16,33 +16,36 @@ export default function Delete(props: DelProps) {
   const navigate = useNavigate();
 
   function delHandler() {
+    let i = 0;
     if (typeof id !== 'undefined') {
-      items.pop(id);
+      i = items.findIndex((item: NoteProps) => {
+        return item.id === id;
+      });
+
+      const save = items.filter((item: NoteProps) => item.id !== id);
+
+      const newNav = findNext();
+      navigate(newNav);
+
+      setItems(save);
+    } else {
+      navigate('/');
     }
-
-    const temp = [...items];
-
-    navigate(findNext());
 
     function findNext() {
       const len = items.length;
-
-      if (len == 0) {
+      let newId = 0;
+      if (len == 1) {
         return '/';
       } else {
-        let newIndex = items.findIndex((item: NoteProps) => {
-          return item.id === id;
-        });
-
-        if (newIndex == len) {
-          newIndex--;
+        if (i + 1 == len) {
+          newId = i - 1;
+        } else {
+          newId = i + 1;
         }
-
-        return `/notes/${items[newIndex].id}`;
+        return `/notes/${items[newId].id}`;
       }
     }
-
-    setItems(temp);
   }
 
   return (

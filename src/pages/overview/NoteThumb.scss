@@ -1,15 +1,18 @@
 .noteThumb {
   border-radius: 20px;
-  padding: 0.9rem;
+  padding: 2rem;
 
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
 
   h1 {
     font-size: 1rem;
     padding: 0;
-    margin: 0;
+    margin: 0.9rem 0 0.9rem 0;
   }
   p {
+    width: 6rem;
+    height: 4rem;
     margin: 0;
+    overflow: hidden;
   }
 }

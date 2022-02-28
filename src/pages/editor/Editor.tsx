@@ -2,24 +2,25 @@ import React, { useEffect, useState } from 'react';
 import NotesList from './NotesBar';
 import { useParams } from 'react-router-dom';
 import { useLocalStorage } from '../../shared/services/useLocalStorage';
-import Note from '../../shared/components/Note';
 import { NoteProps } from '../../shared/components/Note';
 import Add from '../../shared/components/Add';
-import style from './Editor.module.scss';
-import { useNavigate } from 'react-router-dom';
-import { off } from 'process';
+import style from './Editor.scss';
+
+const Note = (props: NoteProps) => {
+  return (
+    <div className={style.note}>
+      <h1>{props.summary}</h1>
+      <p>{props.details}</p>
+    </div>
+  );
+};
 
 export default function Editor() {
-  const navigate = useNavigate();
-
   let { id } = useParams();
 
   let [items, setItems] = useLocalStorage('items', []);
-  console.log(items);
 
   const newId = id ? id : 'none';
-
-  // console.log(newId);
 
   const find = items.find((item: NoteProps) => {
     return item.id === newId;
@@ -37,9 +38,10 @@ export default function Editor() {
         <NotesList
           items={items}
           setItems={setItems}
+          selected={newId}
         ></NotesList>
       </div>
-      <div className={style.note}>
+      <div className={style.noteContainer}>
         <div className={style.buttons}>
           <Add items={items} setItems={setItems}></Add>
         </div>

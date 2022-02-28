@@ -23,6 +23,14 @@ export default function Add(props: AddProps) {
     const id = uuidv4();
     console.log(id);
 
-    setItems([...items, { id, summary: 'note', details: 'lorem ipsum' }]);
+    setItems([
+      ...items,
+      {
+        id,
+        summary: `Note title ${items.length + 1}`,
+        details:
+          'test message test message test message test message test message test message',
+      },
+    ]);
   }
 }
