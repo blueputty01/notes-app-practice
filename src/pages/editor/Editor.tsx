@@ -1,19 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import NotesList from './NotesBar';
 import { useParams } from 'react-router-dom';
 import { useLocalStorage } from '../../shared/services/useLocalStorage';
 import { NoteProps } from '../../shared/components/Note';
+import EditableElement from '../../shared/components/Editable';
 import Add from '../../shared/components/Add';
 import style from './Editor.scss';
-
-const Note = (props: NoteProps) => {
-  return (
-    <div className={style.note}>
-      <h1>{props.summary}</h1>
-      <p>{props.details}</p>
-    </div>
-  );
-};
 
 export default function Editor() {
   let { id } = useParams();
@@ -22,13 +14,37 @@ export default function Editor() {
 
   const newId = id ? id : 'none';
 
-  const find = items.find((item: NoteProps) => {
+  const i = items.findIndex((item: NoteProps) => {
     return item.id === newId;
   });
+  const find = items[i];
 
   if (typeof find === 'undefined') {
     return <h1>This note does not exist.</h1>;
   }
+
+  const titleChangeHandler = (value: string) => {
+    items[i].summary = value;
+    setItems(items);
+  };
+
+  const textChangeHandler = (value: string) => {
+    items[i].details = value;
+    setItems(items);
+  };
+
+  const Note = (props: NoteProps) => {
+    return (
+      <div className={style.note}>
+        <EditableElement onChange={titleChangeHandler}>
+          <h1>{props.summary}</h1>
+        </EditableElement>
+        <EditableElement onChange={textChangeHandler}>
+          <p>{props.details}</p>
+        </EditableElement>
+      </div>
+    );
+  };
 
   const dat = find as NoteProps;
 

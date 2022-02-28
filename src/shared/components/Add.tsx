@@ -21,7 +21,6 @@ export default function Add(props: AddProps) {
   );
   function addHandler() {
     const id = uuidv4();
-    console.log(id);
 
     setItems([
       ...items,
@@ -32,5 +31,7 @@ export default function Add(props: AddProps) {
           'test message test message test message test message test message test message',
       },
     ]);
+
+    navigate(`/notes/${id}`);
   }
 }

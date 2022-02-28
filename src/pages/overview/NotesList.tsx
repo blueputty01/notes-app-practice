@@ -10,8 +10,6 @@ interface Props {
 }
 
 export default function NotesList(props: Props) {
-  console.log(props.items);
-
   const itemEles = props.items.map((dat: NoteProps) => {
     return (
       <NoteThumb
@@ -23,8 +21,6 @@ export default function NotesList(props: Props) {
       ></NoteThumb>
     );
   });
-
-  console.log(itemEles);
 
   return <div className={style.noteList}>{itemEles}</div>;
 }

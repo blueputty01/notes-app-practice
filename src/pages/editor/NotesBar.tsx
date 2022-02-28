@@ -12,6 +12,8 @@ interface ListProps {
 }
 
 export default function NotesList(props: ListProps) {
+  console.log('reload');
+
   const itemEles = props.items.map((dat: NoteProps) => {
     return (
       <NoteThumb

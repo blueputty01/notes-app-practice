@@ -10,9 +10,16 @@
     margin: 0.9rem 0 0.9rem 0;
   }
   p {
-    width: 6rem;
-    height: 4rem;
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    width: 6.5rem;
+    height: 6.5em; /* Fallback for non-webkit, line-height * 2 */
     margin: 0;
+
+    line-height: 1.3em;
+    -webkit-line-clamp: 5; /* if you change this, make sure to change the fallback line-height and height */
+    -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
