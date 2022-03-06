@@ -10,4 +10,8 @@
 .note {
   padding: 1rem 0 0 6rem;
   flex-grow: 1;
+
+  * {
+    outline: none;
+  }
 }
